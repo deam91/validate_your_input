@@ -254,6 +254,35 @@ class _CustomFormState extends State<CustomForm> {
           const SizedBox(
             height: 40,
           ),
+          ReactiveCheckboxListTile(
+            key: const ValueKey('receiveNewsletter'),
+            formControlName: 'receiveNewsletter',
+            title: const Text(
+              'I would like to receive your newsletter and other promotional information.',
+              style: TextStyle(
+                color: ColorName.gray04,
+                fontSize: 14,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
+            controlAffinity: ListTileControlAffinity.leading,
+            contentPadding: const EdgeInsets.symmetric(horizontal: 0),
+            side: BorderSide(
+              color: Theme.of(context)
+                  .inputDecorationTheme
+                  .enabledBorder!
+                  .borderSide
+                  .color,
+            ),
+            checkboxShape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(4),
+            ),
+            checkColor: Theme.of(context).inputDecorationTheme.fillColor,
+            activeColor: ColorName.primary,
+          ),
+          const SizedBox(
+            height: 40,
+          ),
         ],
       ),
     );
