@@ -30,11 +30,12 @@ The main goal of this challenge is to implement forms handling with validations 
 
 ## Screens
 
-![](https://github.com/deam91/validate_your_input/blob/main/assets/images/phone1.png?raw=true)
-![](https://github.com/deam91/validate_your_input/blob/main/assets/images/phone2.png?raw=true)
-![](https://github.com/deam91/validate_your_input/blob/main/assets/images/phone3.png?raw=true)
-![](https://github.com/deam91/validate_your_input/blob/main/assets/images/phone4.png?raw=true)
-![](https://github.com/deam91/validate_your_input/blob/main/assets/images/phone5.png?raw=true)
+![phone1](https://user-images.githubusercontent.com/11580629/175795125-9827e3b9-5283-41b5-a654-4b57c5a1eac6.png)
+![phone2](https://user-images.githubusercontent.com/11580629/175795153-bc20a96e-f241-4cec-b09c-4847b7a6f3ee.png)
+![phone3](https://user-images.githubusercontent.com/11580629/175795156-6ef5c918-b890-4b33-905a-d332d012cb44.png)
+![phone4](https://user-images.githubusercontent.com/11580629/175795158-9ce11204-c03b-4d27-a833-a0cad685e8db.png)
+![phone5](https://user-images.githubusercontent.com/11580629/175795162-e900435e-9302-49de-a149-d4eb1dd6340e.png)
+
 
 ## Getting Started
 
