@@ -40,8 +40,6 @@ class MyChallengeApp extends StatelessWidget {
               settings: routeSettings,
               builder: (BuildContext context) {
                 switch (routeSettings.name) {
-                  case SettingsView.routeName:
-                    return SettingsView(controller: settingsController);
                   case SignIn.routeName:
                     return SignIn(controller: settingsController);
                   default:
