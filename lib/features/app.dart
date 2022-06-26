@@ -3,7 +3,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:validate_your_input/features/signup/signup_view.dart';
 
-import 'login/login_view.dart';
 import 'settings/settings.dart';
 
 class MyChallengeApp extends StatelessWidget {
@@ -40,8 +39,6 @@ class MyChallengeApp extends StatelessWidget {
               settings: routeSettings,
               builder: (BuildContext context) {
                 switch (routeSettings.name) {
-                  case SignIn.routeName:
-                    return SignIn(controller: settingsController);
                   default:
                     return SignUp(controller: settingsController);
                 }
