@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:reactive_forms/reactive_forms.dart';
+import 'package:validate_your_input/common/gen/colors.gen.dart';
 import 'package:validate_your_input/features/signup/animated_field_wrapper.dart';
 import 'package:validate_your_input/features/signup/show_suffix_button.dart';
 
@@ -61,9 +62,50 @@ class _CustomFormState extends State<CustomForm> {
     _selectedOption = TypeValue.great;
     form.control('options').valueChanges.listen((value) {
       final selectedValue = value as TypeValue;
-      // _validateSelection(selectedValue);
+      _validateSelection(selectedValue);
     });
     super.initState();
+  }
+
+  Map<String, Object>? _validateSelection(TypeValue value) {
+    if (value.id == TypeValue.other.id) {
+      if (form.control('other').disabled) {
+        form.control('other').markAsTouched();
+        form.control('other').markAsEnabled();
+        form.focus('other');
+      }
+      setState(() {
+        _selectedOption = value;
+      });
+    } else {
+      if (form.control('other').enabled) {
+        form.control('other').updateValue('');
+        form.control('other').markAsUntouched();
+        form.control('other').markAsDisabled();
+        form.control('other').unfocus(touched: false);
+      }
+      setState(() {
+        _selectedOption = value;
+      });
+    }
+    return null;
+  }
+
+  ReactiveRadioListTile<TypeValue> _getRadioTile(TypeValue value) {
+    return ReactiveRadioListTile<TypeValue>(
+      key: ValueKey(value),
+      controlAffinity: ListTileControlAffinity.leading,
+      formControlName: 'options',
+      value: value,
+      visualDensity: VisualDensity.compact,
+      contentPadding: const EdgeInsets.all(0.0),
+      dense: false,
+      isThreeLine: false,
+      title: Text(value.value),
+      toggleable: false,
+      selected: _selectedOption == value,
+      activeColor: ColorName.primary,
+    );
   }
 
   @override
@@ -160,6 +202,57 @@ class _CustomFormState extends State<CustomForm> {
           ),
           const SizedBox(
             height: 16,
+          ),
+          AnimatedFieldWrapper(
+            child: ReactiveTextField<DateTime>(
+              formControlName: 'birthdate',
+              validationMessages: (control) => {
+                'required': 'The birthdate must not be empty',
+                'adult': 'You must be the age 18 or above to be able to sign up'
+              },
+              readOnly: true,
+              decoration: InputDecoration(
+                  hintText: 'Date of birth',
+                  suffixIcon: ReactiveDatePicker<DateTime>(
+                    initialDatePickerMode: DatePickerMode.year,
+                    initialEntryMode: DatePickerEntryMode.calendar,
+                    formControlName: 'birthdate',
+                    firstDate: DateTime(1960),
+                    lastDate: DateTime(2050),
+                    builder: (context, picker, child) {
+                      return IconButton(
+                        onPressed: picker.showPicker,
+                        iconSize: 22,
+                        icon: Icon(
+                          Icons.date_range,
+                          color: Theme.of(context).textTheme.subtitle2?.color,
+                        ),
+                      );
+                    },
+                  )),
+            ),
+          ),
+          const SizedBox(
+            height: 16,
+          ),
+          Column(
+            children: list.map(_getRadioTile).toList(),
+          ),
+          AnimatedFieldWrapper(
+            child: ReactiveTextField(
+              formControlName: 'other',
+              textInputAction: TextInputAction.continueAction,
+              validationMessages: (control) => {
+                'required': 'The other field must not be empty',
+              },
+              onSubmitted: () => form.focus('receiveNewsletter'),
+              decoration: const InputDecoration(
+                hintText: 'Other',
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 40,
           ),
         ],
       ),
