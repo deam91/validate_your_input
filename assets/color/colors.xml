@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Proyect Custom Colors -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="secondaryBlack">#101010</color>
+    <color name="gray01">#F6F6F6</color>
+    <color name="gray02">#E8E8E8</color>
+    <color name="gray03">#BDBDBD</color>
+    <color name="gray04">#666666</color>
+    <color name="primary">#5DB075</color>
+    <color name="secondary">#4B9460</color>
+</resources>

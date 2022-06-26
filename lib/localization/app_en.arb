@@ -1,0 +1,6 @@
+{
+  "appTitle": "validate_your_input",
+  "@appTitle": {
+    "description": "The title of the application"
+  }
+}
