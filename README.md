@@ -12,6 +12,8 @@ The main goal of this challenge is to implement forms handling with validations 
 
 ✅ Email must be in the right format
 
+✅ Async validator for verify if the email is unique
+
 ✅ Password must be at least 8 characters long and must contain at least a lowercase, an uppercase letter, a number and a symbol
 
 ✅ Password and Password again must match
@@ -24,7 +26,15 @@ The main goal of this challenge is to implement forms handling with validations 
 
 ✅ Scale animation on focus for all input fields
 
-✅ Dark/Light theme
+✅ Dark/Light theme.
+
+## Screens
+
+![](https://github.com/deam91/validate_your_input/blob/main/assets/images/phone1.png?raw=true)
+![](https://github.com/deam91/validate_your_input/blob/main/assets/images/phone2.png?raw=true)
+![](https://github.com/deam91/validate_your_input/blob/main/assets/images/phone3.png?raw=true)
+![](https://github.com/deam91/validate_your_input/blob/main/assets/images/phone4.png?raw=true)
+![](https://github.com/deam91/validate_your_input/blob/main/assets/images/phone5.png?raw=true)
 
 ## Getting Started
 
