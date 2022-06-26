@@ -1,6 +1,30 @@
-# validate_your_input
+# Validate Your Input
 
-A new Flutter project.
+This application is part of the June challenge (2022) for Flutter
+
+You can find the details at https://flutterchallenge.dev/validate-your-input
+
+## Goals
+
+The main goal of this challenge is to implement forms handling with validations to collect user input, using the  awesome [reactive_forms](https://pub.dev/packages/reactive_forms) package.
+
+✅ All fields are mandatory
+
+✅ Email must be in the right format
+
+✅ Password must be at least 8 characters long and must contain at least a lowercase, an uppercase letter, a number and a symbol
+
+✅ Password and Password again must match
+
+✅ The user must be the age 18 or above to be able to sign up
+
+✅ If the user selects the other option, the Other field must be filled out as well.
+
+✅ The submit button is enabled only if the form is valid
+
+✅ Scale animation on focus for all input fields
+
+✅ Dark/Light theme
 
 ## Getting Started
 
