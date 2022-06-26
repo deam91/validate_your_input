@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 import 'package:validate_your_input/features/signup/animated_field_wrapper.dart';
+import 'package:validate_your_input/features/signup/show_suffix_button.dart';
 
 import '../../common/enum.dart';
 import '../../common/validators.dart';
@@ -81,6 +82,79 @@ class _CustomFormState extends State<CustomForm> {
               decoration: const InputDecoration(
                 isDense: true,
                 hintText: 'Name',
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 16,
+          ),
+          AnimatedFieldWrapper(
+            child: ReactiveTextField(
+              formControlName: 'email',
+              textInputAction: TextInputAction.continueAction,
+              onSubmitted: () => form.focus('password'),
+              validationMessages: (control) => {
+                'required': 'The email must not be empty',
+                'email': 'The email value must be a valid email',
+                'unique': 'The email already exist',
+                'john': 'Sorry John, that email already exist. Don`t shut! 🤝 ',
+                'jonny':
+                    'Sorry Jonny, that email already exist. Check your treasure! 💰',
+              },
+              decoration: const InputDecoration(
+                hintText: 'Email',
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 16,
+          ),
+          AnimatedFieldWrapper(
+            child: ReactiveTextField(
+              formControlName: 'password',
+              obscureText: _obscurePassword,
+              textInputAction: TextInputAction.continueAction,
+              onSubmitted: () => form.focus('passwordConfirmation'),
+              validationMessages: (control) => {
+                'minLength': 'The password must contain at least 8 characters',
+                'pattern':
+                    'The password must contain uppercase and lowercase letters, numbers and special characters',
+                'required': 'The password must not be empty',
+                'password': 'The password value must be a valid password'
+              },
+              decoration: InputDecoration(
+                hintText: 'Password',
+                suffixIcon: SuffixButtonShow(onCliked: () {
+                  setState(() {
+                    _obscurePassword = !_obscurePassword;
+                  });
+                }),
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 16,
+          ),
+          AnimatedFieldWrapper(
+            child: ReactiveTextField(
+              formControlName: 'passwordConfirmation',
+              textInputAction: TextInputAction.continueAction,
+              onSubmitted: () => form.focus('birthdate'),
+              obscureText: _obscurePasswordConfirmation,
+              validationMessages: (control) => {
+                'minLength': 'The password must contain at least 8 characters',
+                'required': 'The password must not be empty',
+                'password': 'The password value must be a valid password',
+                'mustMatch': 'The confirmation must match with the password'
+              },
+              decoration: InputDecoration(
+                hintText: 'Password again',
+                suffixIcon: SuffixButtonShow(onCliked: () {
+                  setState(() {
+                    _obscurePasswordConfirmation =
+                        !_obscurePasswordConfirmation;
+                  });
+                }),
               ),
             ),
           ),
