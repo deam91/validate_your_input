@@ -283,6 +283,54 @@ class _CustomFormState extends State<CustomForm> {
           const SizedBox(
             height: 40,
           ),
+          Row(
+            children: [
+              Expanded(
+                child: ReactiveFormConsumer(
+                  builder: (context, form, child) {
+                    return ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        shape: const StadiumBorder(),
+                        elevation: 0,
+                        onSurface: ColorName.primary.withOpacity(1),
+                        primary: ColorName.primary,
+                        fixedSize: const Size.fromHeight(51),
+                      ),
+                      onPressed: form.valid
+                          ? () {
+                              if (kDebugMode) {
+                                print(form.value);
+                              }
+                            }
+                          : null,
+                      child: const Text(
+                        'Sign Up',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.white,
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(
+            height: 16,
+          ),
+          TextButton(
+            onPressed: () {},
+            child: const Text(
+              'Forgot your password?',
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
+                color: ColorName.primary,
+              ),
+            ),
+          )
         ],
       ),
     );
